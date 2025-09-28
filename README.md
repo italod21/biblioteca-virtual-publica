@@ -12,10 +12,10 @@ Usuários podem cadastrar, buscar e consultar livros livremente, com controle de
 - MongoDB + Mongoose
 - Swagger UI (documentação da API)
 - Dotenv (variáveis de ambiente)
-- Nodemon (desenvolvimento)
+- Nodemon (modo desenvolvimento)
 - Bcrypt.js (criptografia de senha)
-- JSON Web Token (em breve)
-- Nodemailer (em breve)
+- JSON Web Token (autenticação)
+- Multer (upload de arquivos - em breve)
 
 ---
 
@@ -61,29 +61,37 @@ Você verá a interface interativa da documentação da API via Swagger UI.
 
 ## ✅ Status atual
 
-- [x] Configuração do servidor Express
-- [x] Conexão com MongoDB
-- [x] Configuração do Swagger
-- [x] Rota de teste documentada
-- [ ] Cadastro de usuários (`/auth/register`)
-- [ ] Login e autenticação JWT
-- [ ] CRUD de livros
-- [ ] Ranking de livros mais acessados
-- [ ] Confirmação de e-mail
+## ✅ Status atual
+
+- [x] Configuração do servidor Express  
+- [x] Conexão com MongoDB  
+- [x] Documentação com Swagger  
+- [x] Cadastro de usuários (`/auth/register`)  
+- [x] Login e autenticação JWT (`/auth/login`)  
+- [x] Middleware de autenticação (`/auth/me`)  
+- [x] CRUD de livros (sem upload de arquivo por enquanto)  
+- [x] Filtros por título, autor e gênero  
+- [ ] Upload de arquivos para Supabase  
+- [ ] Ranking de livros mais acessados  
+- [ ] Confirmação de e-mail no cadastro  
+- [ ] Interface em React (em desenvolvimento)  
 
 ## 📁 Estrutura de diretórios
 
 ```
-backend/
-├── src/
-│   ├── config/          # Configurações (Swagger, DB, etc)
-│   ├── controllers/     # Lógica das rotas
-│   ├── models/          # Modelos do MongoDB
-│   ├── routes/          # Arquivos de rotas
-│   └── index.js         # Arquivo principal do servidor
-├── .env
-├── .gitignore
-└── package.json
+biblioteca-virtual-publica/
+├── backend/
+│   ├── src/
+│   │   ├── config/          # Configurações (DB, Swagger, etc.)
+│   │   ├── controllers/     # Lógica de cada rota
+│   │   ├── models/          # Modelos Mongoose
+│   │   ├── routes/          # Definições de rotas
+│   │   ├── middleware/      # Middlewares (ex: autenticação)
+│   │   ├── services/        # Serviços auxiliares (em breve)
+│   │   └── index.js         # Arquivo principal do servidor
+│   ├── .env
+│   ├── .gitignore
+│   └── package.json
 ```
 ## 📄 Licença
 
