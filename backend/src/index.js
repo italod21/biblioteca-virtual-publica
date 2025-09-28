@@ -3,6 +3,9 @@ const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
+const testeRoutes = require('./routes/teste');
 
 // Carrega o arquivo .env de forma absoluta
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
@@ -16,6 +19,10 @@ const app = express();
 // Middlewares
 app.use(cors());
 app.use(express.json());
+
+// Rota do Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/', testeRoutes);
 
 // Rota básica de teste
 app.get('/', (req, res) => {
