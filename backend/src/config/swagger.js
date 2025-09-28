@@ -10,13 +10,26 @@ const options = {
       description: 'Documentação da API da Biblioteca Virtual Pública',
     },
     servers: [
-        {
-            url: 'http://localhost:4000',
-        },
+      {
+        url: 'http://localhost:4000',
+      },
     ],
-
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
-  apis: [path.join(__dirname, '../routes/*.js')], // ✅ Caminho robusto
+  apis: [path.join(__dirname, '../routes/*.js')],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

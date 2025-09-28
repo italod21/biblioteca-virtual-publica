@@ -5,7 +5,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./config/swagger');
-const testeRoutes = require('./routes/teste');
+const authRoutes = require('./routes/auth');
+const livrosRoutes = require('./routes/livros');
 
 // Carrega o arquivo .env de forma absoluta
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
@@ -22,8 +23,8 @@ app.use(express.json());
 
 // Rota do Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.use('/', testeRoutes);
-
+app.use('/', authRoutes);
+app.use(livrosRoutes);
 // Rota básica de teste
 app.get('/', (req, res) => {
   res.send('🚀 API da Biblioteca Virtual Pública está no ar!');
