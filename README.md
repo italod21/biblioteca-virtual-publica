@@ -18,7 +18,7 @@ Usuários podem cadastrar, buscar e consultar livros livremente, com controle de
 - Multer (upload de arquivos - em breve)
 
 ---
-
+Em VSCode, instale a extensão Markdown Preview Mermaid Support para visualizar direto.
 ## 📦 Instalação e execução local
 
 ### 1. Clone o repositório
@@ -58,8 +58,6 @@ Após iniciar o servidor, acesse no navegador:
 👉 [`http://localhost:4000/api-docs`](http://localhost:4000/api-docs)
 
 Você verá a interface interativa da documentação da API via Swagger UI.
-
-## ✅ Status atual
 
 ## ✅ Status atual
 
